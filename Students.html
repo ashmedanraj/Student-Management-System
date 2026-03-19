@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapman University Management System</title>
+
+<style>
+
+body{
+  margin: 0;
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  background-image: url("background.jpg");
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  min-height: 100vh; 
+}
+
+header{
+height:80px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 40px;
+}
+
+header h1{
+    margin-left: 400px;
+}
+
+.navi ul{
+list-style:none;
+margin:0;
+padding:0;
+}
+
+.navi li{
+display:inline;
+margin-left:30px;
+}
+
+.navi a{
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+#Students{
+margin-left:50px;
+margin-top:30px;
+}
+
+input,select,textarea{
+display:block;
+margin-bottom:10px;
+width:250px;
+padding:5px;
+}
+
+table{
+margin-top:30px;
+width:90%;
+border-collapse:collapse;
+background:white;
+color:black;
+}
+
+th,td{
+border:1px solid black;
+padding:8px;
+text-align:center;
+}
+
+button{
+padding:5px 10px;
+margin:2px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<center><h1>Chapman University Management System</h1></center>
+
+<nav class="navi">
+<ul>
+<li><a href="StudentManagementSystem.html">Home</a></li>
+<li><a href="Students.html">Students</a></li>
+<li><a href="Department.html">Departments</a></li>
+<li><a href="StudentManagementSystem.html">Contact</a></li>
+</ul>
+</nav>
+</header>
+
+
+<div id="Students">
+<center><h1>Student Management</h1></center>
+<h2>Add Student</h2>
+
+<form id="studentForm">
+
+<label>Name</label>
+<input type="text" id="name">
+
+<label>Email</label>
+<input type="email" id="email">
+
+<label>Department</label>
+<select id="course">
+<option value="">Select</option>
+<option>CSE</option>
+<option>IT</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>Mech</option>
+<option>Aero</option>
+<option>AIDS</option>
+</select>
+
+<label>Mobile</label>
+<input type="text" id="mobile">
+
+<input type="submit" value="Add Student">
+
+</form>
+
+
+<h2>Student List</h2>
+
+<table id="studentTable">
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Department</th>
+<th>Mobile</th>
+<th>Actions</th>
+</tr>
+
+</table>
+
+</div>
+
+
+<script>
+
+let students = [];
+let editIndex = -1;
+
+document.getElementById("studentForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let email=document.getElementById("email").value;
+let course=document.getElementById("course").value;
+let mobile=document.getElementById("mobile").value;
+
+if(name==""||email==""||course==""||mobile==""){
+alert("Please fill all fields");
+return;
+}
+
+let student={name,email,course,mobile};
+
+if(editIndex==-1){
+students.push(student);
+}
+else{
+students[editIndex]=student;
+editIndex=-1;
+}
+
+displayStudents();
+
+document.getElementById("studentForm").reset();
+
+});
+
+function displayStudents(){
+
+let table=document.getElementById("studentTable");
+
+table.innerHTML=`
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Course</th>
+<th>Mobile</th>
+<th>Actions</th>
+</tr>
+`;
+
+students.forEach((s,index)=>{
+
+table.innerHTML+=`
+<tr>
+<td>${s.name}</td>
+<td>${s.email}</td>
+<td>${s.course}</td>
+<td>${s.mobile}</td>
+<td>
+<button onclick="editStudent(${index})">Edit</button>
+<button onclick="deleteStudent(${index})">Delete</button>
+</td>
+</tr>
+`;
+
+});
+
+}
+
+function deleteStudent(index){
+
+students.pop(index,1);
+
+displayStudents();
+
+}
+
+function editStudent(index){
+
+let s=students[index];
+
+document.getElementById("name").value=s.name;
+document.getElementById("email").value=s.email;
+document.getElementById("course").value=s.course;
+document.getElementById("mobile").value=s.mobile;
+
+editIndex=index;
+
+}
+
+</script>
+
+</body>
+</html>
+
