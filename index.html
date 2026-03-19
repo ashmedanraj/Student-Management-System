@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapman University Management System</title>
+<body>
+<header>
+<h1>Chapman University Management System</h1>
+<nav class="navi">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="Students.html">Students</a></li>
+<li><a href="Department.html">Departments</a></li>
+<li><a href="index.html">Contact Us</a></li>
+</ul>   
+</nav>
+</header>
+<div id="home">
+<center><h2>Welcome to the Chapman University Management System</h2></center>
+<p>
+The Chapman University Management System is a web-based platform designed to manage college records and academic information efficiently. This dashboard serves as the central control panel where users can access different sections such as student details, course information, and contact support. The system allows administrators to add, edit, and manage student data easily while keeping the information organized and accessible. With a clean and simple interface, this platform helps improve the management of student records in an effective and structured way.
+</p>
+</div>
+<br>
+<b style="margin-left:20px;">Management Details</b>
+
+<div class="box-container">
+<div class="cont-student"><p>Total Students: 30</p></div>
+<div class="cont-dept"><p>Total Departments: 8</p></div>
+<div class="cont-staff"><p>Total Staff: 15</p></div>
+<div class="cont-courses"><p>Total Courses: 24</p></div>
+</div>
+
+<div class="tables-container">
+
+<div class="cont-event">
+
+<b>Upcoming Department Events</b>
+
+<table>
+
+<tr>
+<th>Event Name</th>
+<th>Date</th>
+<th>Location</th>
+</tr>
+
+<tr>
+<td>DBMS Webinar</td>
+<td>18-03-2026</td>
+<td>CSE Lab</td>
+</tr>
+
+<tr>
+<td>Placement Drive</td>
+<td>01-04-2026</td>
+<td>Seminar Hall</td>
+</tr>
+
+<tr>
+<td>Sports and Annual day</td>
+<td>20-04-2026</td>
+<td>College Auditorium</td>
+</tr>
+</table>
+</div>
+
+<div class="cont-notice">
+<b>Notice Board</b>
+<table>
+<tr>
+<th>S.No</th>
+<th>Date</th>
+<th>Notice</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>18-03-2026</td>
+<td>Project Review for 4th Year Students</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>19-03-2026</td>
+<td>Project Review for 3rd Year Students</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>20-04-2026</td>
+<td>Project Review for 2nd Year Students</td>
+</tr>
+</table>
+</div>
+</div>
+
+<footer>
+<br><br>
+<section id="contact">
+<p class="zero">Contact Information</p>
+<p class="four">
+If you have any questions, suggestions, or require assistance regarding the College Management System, please feel free to contact the administration office. Our team is always ready to help students, staff, and visitors with any queries related to academic information, departments, and campus activities.
+</p><br>
+<p class="one">Email: admin@chapman.edu.in</p>
+<p class="two">Phone: +91 9874563210</p>
+<p class="three">Address: Chapman University Main Road, Avadi, Chennai-54</p>
+</section>
+</footer>
+</body>
+<style>
+
+body{
+    margin:0;
+    color:white;
+    font-family:'Times New Roman', Times, serif;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header{
+    height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 40px;
+}
+
+header h1{
+    margin:0;
+    margin-left:420px;
+}
+
+.navi ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.navi li{
+    display:inline;
+    margin-left:30px;
+}
+
+.navi a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+#home p{
+    margin-left:20px;
+    margin-right:20px;
+    text-align:justify;
+}
+
+.box-container{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    margin-top:20px;
+}
+
+.cont-student,.cont-dept,.cont-staff,.cont-courses{
+    height:60px;
+    width:210px;
+    text-align:center;
+}
+
+.cont-student p,.cont-dept p,.cont-staff p,.cont-courses p{
+    font-size:20px;
+    font-weight:bold;
+    color:white;
+}
+
+.cont-dept:hover,.cont-student:hover,.cont-staff:hover,.cont-courses:hover,.cont-event:hover,.cont-notice:hover{
+    color:aqua;
+}
+
+.tables-container{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    margin-top:30px;
+}
+
+.cont-event,.cont-notice{
+    height:200px;
+    width:560px;
+    text-align:center;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:8px;
+}
+
+table tr:hover{
+    background-color:grey;
+    color:white;
+}
+
+.zero{
+    margin-left:20px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.four{
+    margin-left:20px;
+    margin-top:-10px;
+}
+
+.one{
+    margin-left:200px;
+    margin-top:-20px;
+}
+
+.two{
+    margin-left:600px;
+    margin-top:-33px;
+}
+
+.three{
+    margin-left:1000px;
+    margin-top:-36px;
+}
+
+@media screen and (max-width:768px){
+
+.box-container{
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+.tables-container{
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+.cont-event,.cont-notice{
+    width:90%;
+}
+
+.zero,.four,.one,.two,.three{
+    margin-left:20px;
+    margin-top:10px;
+}
+}
+
+</style>
+</head>
+</html>
